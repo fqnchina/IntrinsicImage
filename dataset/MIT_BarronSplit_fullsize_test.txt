@@ -1,0 +1,10 @@
+/raid/qingnan/data/MIT-input-fullsize/deer-1.png
+/raid/qingnan/data/MIT-input-fullsize/potato-1.png
+/raid/qingnan/data/MIT-input-fullsize/paper2-1.png
+/raid/qingnan/data/MIT-input-fullsize/cup2-1.png
+/raid/qingnan/data/MIT-input-fullsize/sun-1.png
+/raid/qingnan/data/MIT-input-fullsize/pear-1.png
+/raid/qingnan/data/MIT-input-fullsize/frog2-1.png
+/raid/qingnan/data/MIT-input-fullsize/turtle-1.png
+/raid/qingnan/data/MIT-input-fullsize/raccoon-1.png
+/raid/qingnan/data/MIT-input-fullsize/teabag1-1.png

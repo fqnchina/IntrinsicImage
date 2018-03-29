@@ -1,0 +1,1 @@
+function error=evaluate_one_k(a,b)	error=0;	newa=a;	[m n d]=size(a);	mask=~isnan(a);	ind=find(mask);	va=reshape(a(ind),[],1);	vb=reshape(b(ind),[],1);	k=(va'*vb)/(va'*va);	newa(ind)=a(ind)*k;	error=(min(k*va,1)-vb)'*(min(k*va,1)-vb)/numel(ind);end
