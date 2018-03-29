@@ -17,7 +17,7 @@ Data Generation
 
 The training data for IIW can be directly obtained from their official [project page](<https://labelmaterial.s3.amazonaws.com/release/iiw-dataset-release-0.zip>). The training data for the guidance network of IIW data is L1smooth results, which is shared from [this link](<https://drive.google.com/file/d/0B_bZKF86bTHLb0NrNm1NRTZJUUk/view?usp=sharing>). Note the IIW label is transfered by us into txt format for training, we include these IIW txt label files into [this link](<https://www.dropbox.com/s/kjrvo1smbiz7ovr/IntrinsicImg_dataset.zip?dl=0>). As for MIT and MPI-Sintel dataset, whose data sources may be inconvinient to obtain, we also include them in the last link. 
 
-You need to run **gen_trainData_MPI.m** to crop and flip the MPI images to generate our training data. The input images to our network have to cropped to image size of even number as we downsample the intermediate feature maps by half.
+Run **gen_trainData_MPI.m** to crop and flip the MPI images to generate our training data. The input images to our network have to cropped to image size of even number as we downsample the intermediate feature maps by half.
 
 The sparse label of IIW dataset is in json file format originally, we extract the useful information and transfer them to txt file. You can either transfer the labels using **transferIIW.m** or directly use the transfered files in our released dataset.
 
@@ -28,13 +28,13 @@ Training
 
 The trained models are all in the **netfiles** folder.
 
-To train the models from scratch, you need to run the files in the **training** folder. 
+To train the models from scratch, run the files in the **training** folder. 
 
-Since we levearge two-fold cross validation for the MPI dataset, you need to train on both the train and test split of MPI data.
+Since we levearge two-fold cross validation for the MPI dataset, training on both the train and test split of MPI data is required.
 
 Evaluation
 ----
-To test our trained model, you can run **test_*.lua** files, while to evaluate the numerical errors, you can run **compute_*_error.*** files.
+To test our trained model, run **test_*.lua** files, while to evaluate the numerical errors, run **compute_*_error.*** files.
 
 Cite
 ----
