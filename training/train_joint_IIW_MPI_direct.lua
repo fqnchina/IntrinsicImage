@@ -260,7 +260,7 @@ while true do
   table.insert(testSet, line)
 end
 f:close()
-local file = '/mnt/data/iiw_Learning_Lightness_train.txt'
+local file = '/mnt/data/iiw_Learning_Lightness_test.txt'
 local f = io.open(file, "rb")
 while true do
   local line = f:read()
@@ -363,7 +363,7 @@ step = function(batch_size)
           current_testloss_iiw = current_testloss_iiw + tempLoss
           testcount_iiw = testcount_iiw + 1
         elseif string.match(inputFile, "MPI") then
-          local albedoFile = string.gsub(inputFile,'input','albedo')
+          local albedoFile = string.gsub(inputFile,'clean','albedo')
           local albedo = torch.CudaTensor(1, 3, height, width)
           albedo[1] = image.load(albedoFile):cuda()
           local tempLoss =  criterion_mpi:forward({pred}, {albedo})

@@ -38,11 +38,11 @@ for _,file in ipairs(files) do
 	local templabelS = image.load(labelSFile)
 	local templabelM = image.load(labelMFile)
 
-	local savLabelA = string.gsub(savColor,'.png','label-albedo.png')
-	local savLabelS = string.gsub(savColor,'.png','label-shading.png')
-	local savLabelM = string.gsub(savColor,'.png','label-mask.png')
-	local savAlbedo = string.gsub(savColor,'.png','predict-albedo.png')
-	local savShading = string.gsub(savColor,'.png','predict-shading.png')
+	local savLabelA = string.gsub(savColor,'.png','-label-albedo.png')
+	local savLabelS = string.gsub(savColor,'.png','-label-shading.png')
+	local savLabelM = string.gsub(savColor,'.png','-label-mask.png')
+	local savAlbedo = string.gsub(savColor,'.png','-predict-albedo.png')
+	local savShading = string.gsub(savColor,'.png','-predict-shading.png')
 	local savColor = string.gsub(savColor,'.png','-input.png')
 
 	local input = torch.CudaTensor(1, 3, height, width)
