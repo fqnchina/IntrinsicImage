@@ -4,9 +4,13 @@ This is the implementation of CVPR 2018 Oral paper *"Revisiting Deep Intrinsic I
 Compilation
 ----
 
-Our codes are implemented in Torch framework. Some self-defined layers are included in the 'compile' folder. Before testing or training the models, you need to install the latest torch framework and compile the ***.lua** under the nn module, the ***.cu** and ***.h** under the cunn module, and **adam_state.lua** under optim module.
+Our codes are implemented in Torch framework. Some self-defined layers are included in the '**compile**' folder. Before testing or training the models, you need to install the latest torch framework and compile the ***.lua** under the nn module, the ***.cu** and ***.h** under the cunn module, and **adam_state.lua** under optim module.
 
-To be specific, the lua files have to be put in **./torch/extra/nn/** module directory, and editing **init.lua** file to include the corresponding file. Finally run the command under nn directory, **luarocks make ./rocks/nn-scm-1.rockspec**. Then nn module will be independently compiled. Similarly for the cuda files, they need to be put into **./torch/extra/cunn/lib/THCUNN/** module directory, then editing the **./torch/extra/cunn/lib/THCUNN/generic/THCUNN.h** to include the corresponding files, and finally run the command **luarocks make ./rocks/cunn-scm-1.rockspec** under **./torch/extra/cunn** folder to compile them. Accordingly, the adam lua file has to be put in **./torch/pkg/optim**, edit the **init.lua** file and then run **luarocks make optim-1.0.5-0.rockspec**.
+To be specific, the lua files have to be put in **./torch/extra/nn/** module directory, and editing **init.lua** file to include the corresponding file. Finally run the command under nn directory, **luarocks make ./rocks/nn-scm-1.rockspec**. Then nn module will be independently compiled. 
+
+Similarly for the cuda files, they need to be put into **./torch/extra/cunn/lib/THCUNN/** module directory, then editing the **./torch/extra/cunn/lib/THCUNN/generic/THCUNN.h** to include the corresponding files, and finally run the command **luarocks make ./rocks/cunn-scm-1.rockspec** under **./torch/extra/cunn** folder to compile them. 
+
+Accordingly, the adam lua file has to be put in **./torch/pkg/optim**, edit the **init.lua** file and then run **luarocks make optim-1.0.5-0.rockspec**.
 
 Data Generation
 ----
