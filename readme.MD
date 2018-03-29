@@ -11,7 +11,7 @@ To be specific, the lua files have to be put in **./torch/extra/nn/** module dir
 
 **Data Generation**
 
-The training data for IIW can be directly obtained from their official project page. The training data for the guidance network of IIW data is L1smooth results, which is shared from this link, https://drive.google.com/file/d/0B_bZKF86bTHLb0NrNm1NRTZJUUk/view?usp=sharing. Note the IIW label is transfered by us into txt format for training, we include these IIW txt label files into this link, https://www.dropbox.com/s/kjrvo1smbiz7ovr/IntrinsicImg_dataset.zip?dl=0. As for MIT and MPI-Sintel dataset, whose data sources may be inconvinient to obtain, we also include them in the last link. 
+The training data for IIW can be directly obtained from their official [project page](<https://labelmaterial.s3.amazonaws.com/release/iiw-dataset-release-0.zip>). The training data for the guidance network of IIW data is L1smooth results, which is shared from [this link](<https://drive.google.com/file/d/0B_bZKF86bTHLb0NrNm1NRTZJUUk/view?usp=sharing>). Note the IIW label is transfered by us into txt format for training, we include these IIW txt label files into [this link](<https://www.dropbox.com/s/kjrvo1smbiz7ovr/IntrinsicImg_dataset.zip?dl=0>). As for MIT and MPI-Sintel dataset, whose data sources may be inconvinient to obtain, we also include them in the last link. 
 
 You need to run **gen_trainData_MPI.m** to crop and flip the MPI images to generate our training data. The input images to our network have to cropped to image size of even number as we downsample the intermediate feature maps by half.
 
