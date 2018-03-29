@@ -34,7 +34,7 @@ Since we levearge two-fold cross validation for the MPI dataset, training on bot
 
 Evaluation
 ----
-To test our trained model, run **test_*.lua** files, while to evaluate the numerical errors, run **compute_*_error.*** files.
+To test our trained model, run **test_*.lua** files, while to evaluate the numerical errors, run **compute_*_error** files.
 
 Cite
 ----
