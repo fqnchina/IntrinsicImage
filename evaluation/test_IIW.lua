@@ -41,25 +41,29 @@ for _,inputFile in ipairs(files) do
 	input[1] = inputImg:cuda()
 	input = input * 255
 
+	-- local guide_albedo_file = string.gsub(inputFile,imgPath,'/raid/qingnan/data/iiw_L1_IntrinsicDecomposition_r/')
+	-- local guide_a = image.load(guide_albedo_file)
+	-- local guide_albedo = torch.CudaTensor(1, 3, height, width)
+	-- guide_albedo[1] = guide_a:cuda()
+	-- guide_albedo_mean = torch.sum(guide_albedo,2)/3
 
-	local guide_albedo_file = string.gsub(inputFile,imgPath,'/raid/qingnan/data/iiw_L1_IntrinsicDecomposition_r/')
-	local guide_a = image.load(guide_albedo_file)
-	local guide_albedo = torch.CudaTensor(1, 3, height, width)
-	guide_albedo[1] = guide_a:cuda()
+	-- local guide_shading_file = string.gsub(inputFile,imgPath,'/raid/qingnan/data/iiw_L1_IntrinsicDecomposition_s/')
+	-- local guide_s = image.load(guide_shading_file)
+	-- local guide_shading = torch.CudaTensor(1, 3, height, width)
+	-- guide_shading[1] = guide_s:cuda()
+	-- guide_shading = torch.sum(guide_shading,2)/3
+
 	local guide_albedo = input/255
-	guide_albedo_mean = torch.sum(guide_albedo,2)/3
-
-	local guide_shading_file = string.gsub(inputFile,imgPath,'/raid/qingnan/data/iiw_L1_IntrinsicDecomposition_s/')
-	local guide_s = image.load(guide_shading_file)
-	local guide_shading = torch.CudaTensor(1, 3, height, width)
-	guide_shading[1] = guide_s:cuda()
 	local guide_shading = input/255
-	guide_shading = torch.sum(guide_shading,2)/3
+	local guide_albedo_mean = torch.sum(guide_albedo,2)/3
 
 	local predictions_final = model:forward(input)
 	predictions_final1 = predictions_final[1]
 	predictions_final2 = predictions_final[2]
 	predictions_final3 = predictions_final[3]
+
+	-- uncomment the following line while testing the jointly trained model
+	-- predictions_final1 = torch.cmax(torch.sum(predictions_final1,2)/3,0.0000000001)
 
 	local r_value = torch.cmax(predictions_final1,0.0000000001)
 	local input_mean = torch.cmax(torch.sum(input,2)/3,0.0000000001)
@@ -89,7 +93,6 @@ for _,inputFile in ipairs(files) do
 
 	local sav = string.gsub(savColor,'.png','-r_small.png')
 	image.save(sav,predictions_final1[1])
-
 
 	for m = 1,3 do
 	  local numerator = torch.dot(predictions_final3[1][m], guide_albedo[1][m])
