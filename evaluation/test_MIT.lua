@@ -48,7 +48,7 @@ for _,file in ipairs(files) do
 	local input = torch.CudaTensor(1, 3, height, width)
 	local labelA = torch.CudaTensor(1, 3, height, width)
 	local labelS = torch.CudaTensor(1, 3, height, width)
-	local labelM = torch.CudaTensor(1, 3, height, width)
+	local labelM = torch.CudaTensor(1, 1, height, width)
 	input[1] = tempInput
 	labelA[1] = templabelA
 	labelS[1] = templabelS
