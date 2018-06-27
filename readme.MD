@@ -1,6 +1,8 @@
 # Revisiting Deep Intrinsic Image Decompositions
 This is the implementation of CVPR 2018 Oral paper *"Revisiting Deep Intrinsic Image Decompositions"* by Qingnan Fan *et al.*.
 
+Check my [homepage](<https://fqnchina.github.io/homepage/>) for the paper, supplemental material, slides and the other info.
+
 Compilation
 ----
 
